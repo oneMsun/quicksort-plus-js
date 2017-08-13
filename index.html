@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>快速排序</title>
+</head>
+<body>
+  <script>
+
+    var n = 0;
+    function quickSort(arr){
+      if(arr.length <= 1){
+        return arr;
+      }
+      debugger;//生成段点
+      var base = arr.splice(~~(arr.length/2), 1)[0];
+      var left = [];
+      var right = [];
+
+      while(arr.length){
+        if(arr[0] < base){
+          left.push(arr.shift());
+        }else{
+          right.push(arr.shift());
+        }
+      }
+
+      n++;
+
+      return quickSort(left).concat(base, quickSort(right));
+    }
+
+    var arr = [5, 4, 3, 2, 1, 3];
+
+    console.log(quickSort(arr));
+    console.log(n);
+
+
+  </script>
+</body>
+</html>
